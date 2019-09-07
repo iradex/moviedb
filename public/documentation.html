@@ -4,10 +4,127 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Documentation - MovieDB API</title>
 </head>
 <body>
     <h1>Documentation - MovieDB API</h1>
-    <p>This API will - eventually - allow users to search for movies, return lists of movies, information on directors, and much more. At the moment, it is just logging the request date + URL. Will be gradually improved.</p>
-</body>
+    <table class="tableizer-table">
+       <thead>
+          <tr class="tableizer-firstrow">
+             <th>Description</th>
+             <th>Endpoint</th>
+             <th>Method Type</th>
+             <th>Query Parameters</th>
+             <th>Request Data Format</th>
+             <th>Response Data Format</th>
+          </tr>
+       </thead>
+       <tbody>
+          <tr>
+             <td>Returns list of all movies.</td>
+             <td>/movies</td>
+             <td>GET</td>
+             <td>-</td>
+             <td>-</td>
+             <td>A JSON Object with data about all the movies</td>
+          </tr>
+          <tr>
+              <td>Returns information about a single movie</td>
+              <td>/movies/[Title]</td>
+              <td>GET</td>
+              <td>[Title] is the title of the movie for which the details will be responded.</td>
+              <td>-</td>
+              <td>A JSON Object containing details about the movie that was requested via the endpoint. Example: <br>
+
+                {
+                    title: "Forrest Gump",
+                        actor: "Tom Hanks",
+                        length: 186
+                   }
+                </td>
+          </tr>
+          <tr>
+              <td>Returns a list of movies of a certain genre. </td>
+              <td>/movies/genres/genre</td>
+              <td>GET</td>
+              <td>[Genre] is the genre of the movies for which the list will be generated.</td>
+              <td>-</td>
+              <td>A JSON Object containing a list of movie titles of a certain genre.
+            </td>
+          </tr>
+          <tr>
+              <td>Returns information about a certain director</td>
+              <td>/directors/[director’s name]</td>
+              <td>GET</td>
+              <td>[Director’s name] is the name of the director for which the information will be displayed.</td>
+              <td>-</td>
+              <td>A JSON Object containing the information about the particular director.</td>
+          </tr>
+          <tr>
+              <td>Creates a new user</td>
+              <td>/users</td>
+              <td>POST</td>
+              <td>-</td>
+              <td>A JSON Object holding the name of the user as well as the password. Example: <br>
+
+                {
+                username: „MovieFriend“, 
+                Password: „12345“,
+                email: „moviefriend@gmail.com",
+                dob: 14011991
+                }</td>
+              <td>A message that the user was successfully created</td>
+          </tr>
+          <tr>
+              <td>Updates user data</td>
+              <td>/users/[username]</td>
+              <td>PUT</td>
+              <td>[Username] is the username of the current user…</td>
+              <td>A JSON Object holding the name of the user as well as his key data. 
+                Example:<br>
+                
+                {
+                username: „MovieFriend“, 
+                Password: „p6iasd86ew“,
+                email: „moviefriend@gmail.com",
+                dob: 14011991
+                } </td>
+              <td>A message that the user data was updated successfully.</td>
+          </tr>
+          <tr>
+              <td>Lets users add a list to their personal movie list</td>
+              <td>/users/[username]/favorites</td>
+              <td>POST</td>
+              <td>[Username] is the username of the current user…</td>
+              <td>A JSON Object holding the name of the movie that should be added.
+                Example:<br>
+                
+                {
+                title: „Avatar“
+                }</td>
+              <td>A message showing that the title was added succesfully.</td>
+          </tr>
+          <tr>
+              <td>Lets users delete a movie from their favorites list</td>
+              <td>/users/[username]/favorites/[title]</td>
+              <td>DELETE</td>
+              <td>[Username] is the username of the current user. [title] is the name of the movie that should be deleted.</td>
+              <td>-</td>
+              <td>A message showing that the title was successfully removed from the favorites list.</td>
+          </tr>
+          <tr>
+              <td>Lets users delete their account.</td>
+              <td>/users/[username]</td>
+              <td>DELETE</td>
+              <td>[Username] is the username of the current user…</td>
+              <td>-</td>
+              <td>A message showing that the user was successfully deleted. </td>
+          </tr>
+         
+       </tbody>
+    </table>
+ </body>
+ 
+ 
 </html>

@@ -29,6 +29,39 @@ app.get('/movies', function(req, res) {
     res.json(movies) // returns the JSON object in case the GET route /movies is requested
 });
 
+app.get("/movies/:title", (req, res) => { // returns all information about a specific movie if the GET route /movies/:title is requested
+    res.json(movies.find( (movie) =>
+      { return movie.title === req.params.title   }));
+});
+
+app.get('/movies/genres/:genre', function(req, res) {
+    res.json("Succesfull get request returning all movies of a certain genre"); // returns all movies with a certain genre in case the GET route /movies is requested
+});
+
+app.get('/directors/:name', function(req, res) {
+    res.json("Succesfull get request returning information about a certain director");
+});
+
+app.post('/users', function(req, res){
+    res.json("Succesfully created new user");
+});
+
+app.put('/users/:username', function(req, res) {
+    res.json("Successfully updated user data");
+});
+
+app.post('/users/:username/favorites', function(req, res) {
+    res.json("Succesfully added movie to favorites list");
+});
+
+app.delete('/users/:username/favorites/:title', function (req, res) {
+    res.json("Movie sucessfully deleted from favorites list");
+});
+
+app.delete('/users/:username', function(req, res) {
+    res.json("User successfully deleted"); 
+});
+
 app.use(express.static('public')); // returns all static files, meaning that e.g. documentation.html is returned when the respective request is made
 
 app.use(function(err, req, res, next) { // error logging
