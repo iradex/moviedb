@@ -70,9 +70,10 @@
 
                 {
                 username: „MovieFriend“, 
-                Password: „12345“,
-                email: „moviefriend@gmail.com",
-                dob: 14011991
+                password: „12345“,
+                mail: „moviefriend@gmail.com",
+                birthday: "01-14-1991",
+                favoriteMovies: []
                 }</td>
               <td>A message that the user was successfully created</td>
           </tr>
@@ -85,31 +86,27 @@
                 Example:<br>
                 
                 {
-                username: „MovieFriend“, 
-                Password: „p6iasd86ew“,
-                email: „moviefriend@gmail.com",
-                dob: 14011991
+                    username: „MovieFriend“, 
+                    password: „123456“,
+                    mail: „moviefriend@gmail.com",
+                    birthday: "01-14-1991",
+                    favoriteMovies: []
                 } </td>
               <td>A message that the user data was updated successfully.</td>
           </tr>
           <tr>
               <td>Lets users add a list to their personal movie list</td>
-              <td>/users/[username]/favorites</td>
+              <td>/users/[username]/favorites/[added movie]</td>
               <td>POST</td>
-              <td>[Username] is the username of the current user…</td>
-              <td>A JSON Object holding the name of the movie that should be added.
-                Example:<br>
-                
-                {
-                title: „Avatar“
-                }</td>
+              <td>[Username] is the username of the current user, while [added movie] is the ID of the movie to be added to the user's favorites.</td>
+              <td>-</td>
               <td>A message showing that the title was added succesfully.</td>
           </tr>
           <tr>
               <td>Lets users delete a movie from their favorites list</td>
-              <td>/users/[username]/favorites/[title]</td>
+              <td>/users/[username]/favorites/[movie id]</td>
               <td>DELETE</td>
-              <td>[Username] is the username of the current user. [title] is the name of the movie that should be deleted.</td>
+              <td>[Username] is the username of the current user. [movie id] is the id of the movie that should be deleted.</td>
               <td>-</td>
               <td>A message showing that the title was successfully removed from the favorites list.</td>
           </tr>
