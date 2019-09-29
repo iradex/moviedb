@@ -45,12 +45,12 @@
                 </td>
           </tr>
           <tr>
-              <td>Returns a list of movies of a certain genre. </td>
-              <td>/movies/genres/genre</td>
+              <td>Returns information about a certain genre. </td>
+              <td>/movies/genres/[genre]</td>
               <td>GET</td>
               <td>[Genre] is the genre of the movies for which the list will be generated.</td>
               <td>-</td>
-              <td>A JSON Object containing a list of movie titles of a certain genre.
+              <td>A description of a certain genre, example: "Drama is a genre of narrative fiction (or semi-fiction) intended to be more serious than humorous in tone. "
             </td>
           </tr>
           <tr>
@@ -59,7 +59,11 @@
               <td>GET</td>
               <td>[Director’s name] is the name of the director for which the information will be displayed.</td>
               <td>-</td>
-              <td>A JSON Object containing the information about the particular director.</td>
+              <td>A JSON Object containing the information about the particular director. Example: {
+                "Name": "Steven Spielberg",
+                "Bio": "One of the most influential personalities in the history of cinema, Steven Spielberg is Hollywoods best known director and one of the wealthiest filmmakers in the world.",
+                "Birth": "1946"
+            }</td>
           </tr>
           <tr>
               <td>Creates a new user</td>
@@ -96,9 +100,9 @@
           </tr>
           <tr>
               <td>Lets users add a list to their personal movie list</td>
-              <td>/users/[username]/favorites/[added movie]</td>
+              <td>/users/[username]/favorites/[movie id]</td>
               <td>POST</td>
-              <td>[Username] is the username of the current user, while [added movie] is the ID of the movie to be added to the user's favorites.</td>
+              <td>[Username] is the username of the current user, while [movie id] is the ID of the movie to be added to the user's favorites.</td>
               <td>-</td>
               <td>A message showing that the title was added succesfully.</td>
           </tr>
