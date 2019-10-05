@@ -1,12 +1,17 @@
 const express = require('express');
 const morgan = require('morgan'); //morgan is a library for logging
 const app = express();
+const { check, validationResult } = require('express-validator');
 
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
+const cors = require('cors');
+app.use(cors());
+
+
 const bodyParser = require("body-parser");
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //.use employs middleware
 
 
 const passport = require('passport');
@@ -19,6 +24,8 @@ const Users = Models.User;
 mongoose.connect('mongodb://localhost:27017/movieDB', {useNewUrlParser: true, useUnifiedTopology: true}); //allowing Mongoose to connect to the database
 
 var auth = require('./auth.js')(app);
+
+
 
 app.post('/movies', function(req, res) {
     Movies.findOne({ Title : req.body.Title })
@@ -101,24 +108,38 @@ app.get('/directors/:name', passport.authenticate('jwt', { session: false }), fu
           });
         }); 
 
-app.post('/users', function(req, res) {
-    Users.findOne({ username : req.body.username })
+  app.post('/users',
+
+  [check('username', 'Username is required').not().isEmpty(),
+  check('username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('password', 'Password is required').not().isEmpty(),
+  check('mail', 'Email does not appear to be valid').isEmail()],(req, res) => {
+
+  // check the validation object for errors
+  var errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+    var hashedPassword = Users.hashPassword(req.body.password);
+    Users.findOne({ username : req.body.username }) // Search to see if a user with the requested username already exists
     .then(function(user) {
       if (user) {
-        return res.status(400).send(req.body.username + "already exists");
+        //If the user is found, send a response that it already exists
+        return res.status(400).send(req.body.username + " already exists");
       } else {
         Users
         .create({
-          username: req.body.username,
-          password: req.body.password,
-          mail: req.body.mail,
-          Birthday: req.body.Birthday
+          username : req.body.username,
+          password: hashedPassword,
+          mail : req.body.mail,
+          birthday : req.body.birthday
         })
-        .then(function(user) {res.status(201).json(user) })
+        .then(function(user) { res.status(201).json(user) })
         .catch(function(error) {
           console.error(error);
           res.status(500).send("Error: " + error);
-        })
+        });
       }
     }).catch(function(error) {
       console.error(error);
@@ -215,6 +236,8 @@ app.use(function(err, req, res, next) { // error logging
     res.status(500).send('Error!');
 });
 
-app.listen(8080, () =>
-    console.log('MovieDB is listening on port 8080.')
-);
+var port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function() {
+console.log("Listening on Port 3000");
+});
+
