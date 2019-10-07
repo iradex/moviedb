@@ -1,0 +1,10 @@
+{"_id":{"$oid":"5d8e6573df8fa2eb25f68ee7"},"favoriteMovies":[{"$oid":"5d7d35f9bf8a34ad06f521ae"}],"username":"Moviestar","password":"Moviestar123456","mail":"Moviestar123@gmail.com","__v":0,"birthday":null}
+{"_id":{"$oid":"5d8e66d8df8fa2eb25f68ee8"},"favoriteMovies":[],"username":"Dr. Deluxe","password":"Deluxenumberone","mail":"drdeluxe@gmailcom","__v":0}
+{"_id":{"$oid":"5d8e69494be94eef34e662d5"},"favoriteMovies":[],"username":"Dr. Deluxe2","password":"Deluxenumberone","mail":"drdeluxe@gmailcom","__v":0}
+{"_id":{"$oid":"5d8f12da1cfad0f77a81384c"},"favoriteMovies":[{"$oid":"5d7d5027bf8a34ad06f521b4"}],"username":"Rambo","password":"Silvester","mail":"Ramboman@gmailcom","__v":0}
+{"_id":{"$oid":"5d96044a8e28912e5499c2f6"},"favoriteMovies":[],"username":"AuthTester","password":"Screeni","mail":"Screenshot@gmailcom","__v":0}
+{"_id":{"$oid":"5d9608f7c1afbd311ed7dd4d"},"favoriteMovies":[],"username":"tester","password":"NewPassword!232","mail":"Screenshot@gmailcom","__v":0,"birthday":{"$date":"1979-10-08T23:00:00Z"}}
+{"_id":{"$oid":"5d9878f8cc649f58bffe671c"},"FavoriteMovies":[],"username":"tester5","password":"$2b$10$FDhmjcicpLRvkizf2OQOKO9FkJfyhmpIujjAUan3fT/LQikdYqG/2","birthday":{"$date":"1979-10-08T23:00:00Z"},"__v":0}
+{"_id":{"$oid":"5d987998f76fdc58f6beb0cc"},"FavoriteMovies":[],"username":"tester6","password":"$2b$10$BF.6iSb2h5zSyuXKRfBCt.rSglhGRqp76IP2e3qvc7vfOFhhlrW9e","mail":"Screenshot323@gmail.com","birthday":{"$date":"1979-10-08T23:00:00Z"},"__v":0}
+{"_id":{"$oid":"5d987c59ba316a599e615d38"},"FavoriteMovies":[],"username":"tester7","password":"$2b$10$um2qaB.uJT2y1/5ePXkY1.10wmgtn5xA2jSa1/ewY9eqSO.p2nNOi","mail":"Screenshot323@gmail.com","birthday":{"$date":"1979-10-08T23:00:00Z"},"__v":0}
+{"_id":{"$oid":"5d988313e481105b66ac9324"},"FavoriteMovies":[],"username":"tester19","password":"$2b$10$1ikYlB084dolWNOk/CD8j.xBrII961Th6v1HOREhELmGZCLOKt6KC","mail":"Screenshot323@gmail.com","birthday":{"$date":"1979-10-08T23:00:00Z"},"__v":0}

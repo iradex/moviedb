@@ -21,7 +21,7 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 
-mongoose.connect('mongodb://localhost:27017/movieDB', {useNewUrlParser: true, useUnifiedTopology: true}); //allowing Mongoose to connect to the database
+mongoose.connect('mongodb+srv://plutoo:dogfishhouse@cluster0-y8njo.azure.mongodb.net/admin?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}); //allowing Mongoose to connect to the database
 
 var auth = require('./auth.js')(app);
 
@@ -241,3 +241,4 @@ app.listen(port, "0.0.0.0", function() {
 console.log("Listening on Port 3000");
 });
 
+   
