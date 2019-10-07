@@ -23,6 +23,8 @@ const Users = Models.User;
 
 mongoose.connect('mongodb+srv://plutoo:peter1234@cluster0-y8njo.azure.mongodb.net/admin?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}); //allowing Mongoose to connect to the database
 
+//mongoose.connect('mongodb://localhost:27017/movieDB', {useNewUrlParser: true, useUnifiedTopology: true}); //allowing Mongoose to connect to the database
+
 var auth = require('./auth.js')(app);
 
 
