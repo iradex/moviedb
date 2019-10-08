@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); // module used to hash passwords
 
-var movieSchema = mongoose.Schema({ //defining what is required for a movie entry
+var movieSchema = mongoose.Schema({ // defining what is required for a movie entry
     Title : {type: String, required: true},
     Description : {type: String, required: true},
     Genre : {
@@ -18,7 +18,7 @@ var movieSchema = mongoose.Schema({ //defining what is required for a movie entr
   });
   
 
-var userSchema = mongoose.Schema({
+var userSchema = mongoose.Schema({ // defining what is required for a user
   username : {type: String, required: true},
   password : {type: String, required: true},
   mail : {type: String, required: true},
@@ -26,11 +26,11 @@ var userSchema = mongoose.Schema({
   FavoriteMovies : [{ type : mongoose.Schema.Types.ObjectId, ref: 'Movies' }]
 });
  
-userSchema.statics.hashPassword = function(password) {
+userSchema.statics.hashPassword = function(password) { // hashing the password when a new user is created
   return bcrypt.hashSync(password, 10);
 };
 
-userSchema.methods.validatePassword = function(password) {
+userSchema.methods.validatePassword = function(password) { // validating the password when a user logs in
   return bcrypt.compareSync(password, this.password); };
 
 

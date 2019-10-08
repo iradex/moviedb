@@ -1,3 +1,5 @@
+// Passport is Express-consistent authentication middleware for Node.js.
+
 const passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy,
   Models = require('./models.js'),
