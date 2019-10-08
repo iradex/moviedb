@@ -32,7 +32,7 @@ app.use(morgan('common')); // common is a standard logging format
 
 mongoose.connect('mongodb+srv://testuser:iamtesting123@cluster0-y8njo.azure.mongodb.net/movieDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true }); // allowing Mongoose to connect to the database
 
-// mongoose.connect('mongodb://localhost:27017/movieDB', {useNewUrlParser: true, useUnifiedTopology: true}); //allowing Mongoose to connect to the database
+//mongoose.connect('mongodb://localhost:27017/movieDB', {useNewUrlParser: true, useUnifiedTopology: true}); //allowing Mongoose to connect to the database
 
 var auth = require('./auth.js')(app);
 
@@ -125,7 +125,7 @@ app.get('/movies/genres/:name', passport.authenticate('jwt', { // returns all mo
             console.error(err);
             res.status(500).send("Error: " + err);
         });
-}); /
+}); 
 
 app.get('/directors/:name', passport.authenticate('jwt', {
     session: false
