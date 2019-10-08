@@ -46,10 +46,10 @@ app.get('/', function(req, res) {
 
 app.post('/movies', passport.authenticate('jwt', { // this will allow the user to post new movies
     session: false
-}), [check('Title', 'Title is required').not().isEmpty(),
+}), [check('Title', 'Title is required').not().isEmpty(), // express validator functions
 check('Description', 'Please enter a Description').not().isEmpty(),
 check('Genre', 'Please name the Genre').not().isEmpty()], function(req, res) {
-    var errors = validationResult(req);
+    var errors = validationResult(req); // express validator method, helps to return the errors
 
         if (!errors.isEmpty()) {
             return res.status(422).json({
@@ -64,7 +64,7 @@ check('Genre', 'Please name the Genre').not().isEmpty()], function(req, res) {
             } else {
                 Movies
                     .create({
-                        Title: req.body.Title,
+                        Title: req.body.Title, // based on the req parameters from the body
                         Description: req.body.Description,
                         ImagePath: req.body.ImagePath,
                         Featured: req.body.Featured,
@@ -316,7 +316,7 @@ app.use(function(err, req, res, next) { // error logging
     res.status(500).send('Error!');
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3000; // chooses the port whichever is stored in the environment variable PORT. If there is none, 3000 is used.
 app.listen(port, "0.0.0.0", function() {
     console.log("Listening on Port 3000");
 });
