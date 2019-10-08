@@ -49,6 +49,13 @@ app.post('/movies', passport.authenticate('jwt', { // this will allow the user t
 }), [check('Title', 'Title is required').not().isEmpty(),
 check('Description', 'Please enter a Description').not().isEmpty(),
 check('Genre', 'Please name the Genre').not().isEmpty()], function(req, res) {
+    var errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(422).json({
+                errors: errors.array()
+            });
+        }
     Movies.findOne({
             Title: req.body.Title
         })
