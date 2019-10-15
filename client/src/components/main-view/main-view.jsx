@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { MovieCard } from '../movie-card/movie-card.jsx';
+import { MovieCard } from '../movie-card/movie-card';
 
 
 
@@ -8,7 +8,7 @@ import { MovieCard } from '../movie-card/movie-card.jsx';
 
     // One of the "hooks" available in a React Component
     componentDidMount() {
-      axios.get('/movies')
+      axios.get('https://moviedatabase5.herokuapp.com/movies')
         .then(response => {
           // Assign the result to the state
           this.setState({
@@ -21,7 +21,7 @@ import { MovieCard } from '../movie-card/movie-card.jsx';
     }
   
   
-    render() {
+   render() {
       // If the state isn't initialized, this will throw on runtime
       // before the data is initially loaded
       const { movies } = this.state;
