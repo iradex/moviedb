@@ -44,9 +44,7 @@ app.get('/', function(req, res) {
     res.send("Welcome to MovieDB"); // standard entry point.
 });
 
-app.post('/movies', passport.authenticate('jwt', { // this will allow the user to post new movies
-    session: false
-}), [check('Title', 'Title is required').not().isEmpty(), // express validator functions
+app.post('/movies', [check('Title', 'Title is required').not().isEmpty(), // express validator functions
 check('Description', 'Please enter a Description').not().isEmpty(),
 check('Genre', 'Please name the Genre').not().isEmpty()], function(req, res) {
     var errors = validationResult(req); // express validator method, helps to return the errors
@@ -93,9 +91,7 @@ check('Genre', 'Please name the Genre').not().isEmpty()], function(req, res) {
 
 
 
-app.get('/movies', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.get('/movies', function(req, res) {
     Movies.find()
         .then(function(movies) {
             res.status(201).json(movies) // this promise returns a json object with the list of movies
@@ -106,9 +102,9 @@ app.get('/movies', passport.authenticate('jwt', {
         });
 });
 
-app.get("/movies/:Title", passport.authenticate('jwt', { // returns all information about a specific movie if the GET route /movies/:title is requested
-    session: false
-}), (req, res) => { 
+app.get("/movies/:Title" // returns all information about a specific movie if the GET route /movies/:title is requested
+    
+, (req, res) => { 
     Movies.findOne({
             Title: req.params.Title
         })
@@ -121,14 +117,13 @@ app.get("/movies/:Title", passport.authenticate('jwt', { // returns all informat
         });
 });
 
-app.get('/movies/genres/:name', passport.authenticate('jwt', { // returns all movies with a certain genre in case the GET route /movies is requested
-    session: false
-}), function(req, res) {
+app.get('/movies/genres/:name', // returns all movies with a certain genre in case the GET route /movies is requested
+     function(req, res) {
     Movies.findOne({
             "Genre.Name": req.params.name
         })
         .then(function(movie) {
-            res.status(201).json(movie.Genre.Description) // if we find a movie with 
+            res.status(201).json(movie.Genre.Description) // if we find a movie with  
         })
         .catch(function(err) {
             console.error(err);
