@@ -33809,31 +33809,14 @@ function (_React$Component) {
 
       _axios.default.get('https://moviedatabase5.herokuapp.com/movies').then(function (response) {
         // Assign the result to the state
+        console.log("Worked");
+
         _this.setState({
           movies: response.data
         });
       }).catch(function (error) {
         console.log(error);
       });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      // If the state isn't initialized, this will throw on runtime
-      // before the data is initially loaded
-      var movies = this.state.movies; // Before the movies have been loaded
-
-      if (!movies) return _react.default.createElement("div", {
-        className: "main-view"
-      });
-      return _react.default.createElement("div", {
-        className: "main-view"
-      }, movies.map(function (movie) {
-        return _react.default.createElement("div", {
-          className: "movie-card",
-          key: movie._id
-        }, movie.Title);
-      }));
     }
   }, {
     key: "render",

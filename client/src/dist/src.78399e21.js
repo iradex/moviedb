@@ -33819,25 +33819,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // If the state isn't initialized, this will throw on runtime
-      // before the data is initially loaded
-      var movies = this.state.movies; // Before the movies have been loaded
-
-      if (!movies) return _react.default.createElement("div", {
-        className: "main-view"
-      });
-      return _react.default.createElement("div", {
-        className: "main-view"
-      }, movies.map(function (movie) {
-        return _react.default.createElement("div", {
-          className: "movie-card",
-          key: movie._id
-        }, movie.Title);
-      }));
-    }
-  }, {
-    key: "render",
-    value: function render() {
+      console.log("hello");
       var movies = this.state.movies; // Before the movies have been loaded
 
       if (!movies) return _react.default.createElement("div", {
@@ -34015,7 +33997,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52824" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49662" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

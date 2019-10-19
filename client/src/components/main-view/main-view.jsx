@@ -20,10 +20,8 @@ import { MovieCard } from '../movie-card/movie-card';
         });
     }
   
-  
-   render() {
-      // If the state isn't initialized, this will throw on runtime
-      // before the data is initially loaded
+    render() {
+      console.log("hello");
       const { movies } = this.state;
   
       // Before the movies have been loaded
@@ -32,26 +30,11 @@ import { MovieCard } from '../movie-card/movie-card';
       return (
        <div className="main-view">
        { movies.map(movie => (
-         <div className="movie-card" key={movie._id}>{movie.Title}</div>
+         <MovieCard key={movie._id} movie={movie}/>
        ))}
        </div>
       );
     }
-
-    render() {
-        const { movies } = this.state;
-    
-        // Before the movies have been loaded
-        if (!movies) return <div className="main-view"/>;
-    
-        return (
-         <div className="main-view">
-         { movies.map(movie => (
-           <MovieCard key={movie._id} movie={movie}/>
-         ))}
-         </div>
-        );
-      }
   }
 
   
