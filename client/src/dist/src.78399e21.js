@@ -33816,7 +33816,7 @@ function (_React$Component) {
         onClick: function onClick() {
           return _onClick();
         }
-      }, "Test"), _react.default.createElement("div", {
+      }, "Back"), _react.default.createElement("div", {
         className: "movie-title"
       }, _react.default.createElement("div", {
         className: "label"
