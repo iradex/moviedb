@@ -1,5 +1,15 @@
 $color: steelblue;
 
-.my-flix {
-  color: $color;
+body {
+  margin: 0;
+}
+
+.main-view {
+  background-color: steelblue;
+  height: 100vh;
+}
+
+.movie-card {
+  background-color: white;
+  margin-bottom: 15px;
 }
