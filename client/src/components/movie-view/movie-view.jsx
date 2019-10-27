@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 export class MovieView extends React.Component {
 
@@ -17,24 +18,21 @@ export class MovieView extends React.Component {
 
     return (
        <div className="movie-view">
-        <button onClick={() => onClick()}>Back</button>
+        <Button variant="secondary" onClick={() => onClick() }>← Back</Button>
         <div className="movie-title">
-          <div className="label">Title</div>
-          <div className="value">{movie.Title}</div>
+         <h1 className="value">{movie.Title}</h1>
+        </div>
+        <div className="movie-genre">
+          <div className="value">Genre: {movie.Genre.Name}</div>
+        </div>
+        <div className="movie-director">
+          <div className="value">Director: {movie.Director.Name}</div>
         </div>
         <div className="movie-description">
-          <div className="label">Description</div>
           <div className="value">{movie.Description}</div>
         </div>
         <img className="movie-poster" src={movie.ImagePath} />
-        <div className="movie-genre">
-          <div className="label">Genre</div>
-          <div className="value">{movie.Genre.Name}</div>
-        </div>
-        <div className="movie-director">
-          <div className="label">Director</div>
-          <div className="value">{movie.Director.Name}</div>
-        </div>
+        
        </div>
 
 

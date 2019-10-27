@@ -1,15 +1,88 @@
+.main-view__headline {
+  font-size: 64px;
+  text-align: center;
+  margin-top: 3rem;
+  color: #334E68;
+  font-family: "Permanent Marker", cursive;
+}
+
+.card {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.movie-title {
+  font-weight: bold;
+}
+
+.movie-view {
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.movie-poster {
+  width: 200px;
+  align-self: center;
+  margin: 2rem 2rem;
+}
+
+.movie-genre {
+  font-style: italic;
+}
+
+.movie-director {
+  font-style: italic;
+}
+
+.movie-description {
+  margin-top: 1rem;
+}
+
+.login-view {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 18rem;
+  text-align: center;
+}
+
+.logoTitle {
+  font-family: "Permanent Marker", cursive;
+  font-size: 64px;
+  color: #243B53;
+}
+
+input {
+  border: none;
+  padding: 4px;
+}
+
+.register-view {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 18rem;
+  text-align: center;
+}
+
+.logoTitle {
+  font-family: "Permanent Marker", cursive;
+  font-size: 64px;
+  color: #243B53;
+}
+
+input {
+  border: none;
+  padding: 4px;
+}
+
 body {
   margin: 0;
-}
-
-.main-view {
-  background-color: steelblue;
-  height: 100vh;
-}
-
-.movie-card {
-  background-color: white;
-  margin-bottom: 15px;
+  background-color: #F0F4F8;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */

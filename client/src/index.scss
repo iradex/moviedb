@@ -1,15 +1,18 @@
 $color: steelblue;
+@import "/components/main-view/main-view.scss";
+@import "/components/movie-card/movie-card.scss";
+@import "/components/movie-view/movie-view.scss";
+@import "/components/login-view/login-view.scss";
+@import "/components/register-view/register-view.scss";
+
+
 
 body {
   margin: 0;
+  background-color: #F0F4F8;
+  display: flex;
+  justify-content: center;
 }
 
-.main-view {
-  background-color: steelblue;
-  height: 100vh;
-}
 
-.movie-card {
-  background-color: white;
-  margin-bottom: 15px;
-}
+
