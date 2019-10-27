@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -31,3 +32,7 @@ export function LoginView(props) {
   
   );
 }
+
+LoginView.propTypes = {
+  onClick: PropTypes.func.isRequired
+};

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 
 export function RegisterView(props) {
   const [ username, setUsername ] = useState('');
@@ -47,3 +48,7 @@ export function RegisterView(props) {
   
   );
 }
+
+RegisterView.propTypes = {
+    onClick: PropTypes.func.isRequired
+  };
