@@ -35882,7 +35882,7 @@ function (_React$Component) {
 
       _axios.default.get('https://moviedatabase5.herokuapp.com/movies', {
         headers: {
-          Authorization: "Bearer ".concat(authData.token)
+          Authorization: "Bearer ".concat(token)
         }
       }).then(function (response) {
         // Assign the result to the state

@@ -95,6 +95,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), function(re
     Movies.find()
         .then(function(movies) {
             res.status(201).json(movies) // this promise returns a json object with the list of movies
+            console.log("Success")
         })
         .catch(function(err) {
             console.error(err);
