@@ -52,7 +52,6 @@ onLoggedIn(authData) {
   this.setState({
     user: authData.user.username
   });
-
   localStorage.setItem('token', authData.token);
   localStorage.setItem('user', authData.user.username);
   this.getMovies(authData.token);
@@ -67,7 +66,7 @@ onLoggedIn(authData) {
 
 getMovies(token) {
   axios.get('https://moviedatabase5.herokuapp.com/movies', {
-    headers: { Authorization: `Bearer ${token}`}
+    headers: { Authorization: `Bearer ${authData.token}`}
   })
   .then(response => {
     // Assign the result to the state
