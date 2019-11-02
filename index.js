@@ -91,7 +91,7 @@ check('Genre', 'Please name the Genre').not().isEmpty()], function(req, res) {
 
 
 
-app.get('/movies', passport.authenticate('jwt', { session: false }), function(req, res) {
+app.get('/movies', function(req, res) {
     Movies.find()
         .then(function(movies) {
             res.status(201).json(movies) // this promise returns a json object with the list of movies
