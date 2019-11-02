@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -8,9 +9,18 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    props.onLoggedIn(username);
-    };
+    axios.post('https://moviedatabase5.herokuapp.com/login', {
+      username: username,
+      password: password
+    })
+    .then(response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
+  };
 
   return (
     <div>
