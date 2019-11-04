@@ -131,9 +131,7 @@ app.get('/movies/genres/:name', // returns all movies with a certain genre in ca
         });
 }); 
 
-app.get('/directors/:name', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.get('/directors/:name', function(req, res) {
     Movies.findOne({
             "Director.Name": req.params.name
         })
@@ -193,9 +191,7 @@ app.post('/users',
     });
 
 
-app.get('/users', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.get('/users', function(req, res) {
 
     Users.find()
         .then(function(users) {
@@ -207,9 +203,7 @@ app.get('/users', passport.authenticate('jwt', {
         });
 });
 
-app.put('/users/:username', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.put('/users/:username', function(req, res) {
     Users.findOneAndUpdate({
             "username": req.params.username
         }, {
@@ -232,9 +226,7 @@ app.put('/users/:username', passport.authenticate('jwt', {
         })
 });
 
-app.post('/users/:username/favorites/:MovieID', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.post('/users/:username/favorites/:MovieID', function(req, res) {
     Users.findOneAndUpdate({
             "username": req.params.username
         }, {
@@ -254,9 +246,7 @@ app.post('/users/:username/favorites/:MovieID', passport.authenticate('jwt', {
         })
 });
 
-app.delete('/users/:username/favorites/:MovieID', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.delete('/users/:username/favorites/:MovieID', function(req, res) {
     Users.findOneAndUpdate({
             username: req.params.username
         }, {
@@ -278,9 +268,7 @@ app.delete('/users/:username/favorites/:MovieID', passport.authenticate('jwt', {
 
 
 
-app.delete('/users/:username', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.delete('/users/:username', function(req, res) {
     Users.findOneAndRemove({
         "username": req.params.username
     }).then(function() {
@@ -289,9 +277,7 @@ app.delete('/users/:username', passport.authenticate('jwt', {
 });
 
 
-app.get('/users/:username', passport.authenticate('jwt', {
-    session: false
-}), function(req, res) {
+app.get('/users/:username', function(req, res) {
     Users.findOne({
             username: req.params.username
         })
